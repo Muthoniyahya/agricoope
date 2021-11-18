@@ -1,0 +1,279 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block title %}<title>Group List</title>{% endblock %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+<style type="text/css">
+body{
+ background-color:#b4bfcc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+#group{
+  text-decoration: none;
+}
+.sidebar-nav{
+  height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:#192E5B;
+  overflow: hidden;
+  padding-top: 20px;
+ }
+.sidebar-nav a{
+    padding:13px 13px 13px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #F1F1F1;
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    }
+.sidebar-nav a:hover{
+  color: black;
+}
+.content{
+ align-items: center;
+}
+
+#groups{
+  padding-left: 30%;
+  color: black;
+}
+.topnav {
+overflow: hidden;
+padding-left: 40%;
+}
+.dropdown {
+ float: left;
+ overflow: hidden;
+ margin-left: 34%;
+ width: 200px;
+}
+.dropdown .dropbtn {
+ font-size: 16px;
+ border: none;
+ outline: none;
+ color: black;
+ padding: 14px 16px;
+ background-color: inherit;
+ font-family: inherit;
+ margin: 0;
+ }
+.navbar a:hover, .dropdown:hover .dropbtn {
+ cursor: pointer;
+}
+.dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #F9F9F9;
+ min-width: 170px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ margin-bottom: -20%;
+ }
+.dropdown-content a {
+ float: none;
+ color: black;
+ padding: 12px 16px;
+ text-decoration: none;
+ display: block;
+ text-align: left;
+}
+.dropdown:hover .dropdown-content {
+ display: block;
+}
+.dropdown-menu ul{
+ list-style: none;
+ display: flex;
+ margin: 0%;
+}
+#info{
+font-weight: bold;
+font-family: 'Nunito', sans-serif;
+background: none;
+border: none;
+font-size: 15px;
+}
+.group{
+margin-left: 190px;
+}
+.groups{
+margin-left: 200px;
+}
+.dropbtn{
+ position: relative;
+  bottom: -45px;
+  padding-right: 30px;
+}
+#grp{
+ color: white;
+}
+#grp:hover{
+ color: black;
+}
+#name{
+ padding-bottom: -15%;
+ font-family: 'Nunito', sans-serif;
+}
+#image{
+    width: 35px;
+  }
+  #img{
+    width: 23px;
+  }
+.addbutton {
+  background-color: #192E5B;
+  border: none;
+  color: #FFFFFF;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 1100px;
+  position: relative;
+  bottom: -350px;
+  border-radius: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+#table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+            margin-left: 20%;
+            font-family: 'Nunito', sans-serif;
+         } ;
+        #table td, #table th {
+            border: 1px solid rgb(15, 15, 15);
+            padding: 8px;
+            font-family: 'Nunito', sans-serif;
+            margin-left: 20%;
+        }
+        #table tr:nth-child(even){
+            background-color: #f2f2f2be;
+        }
+        #table tr:hover {
+            background-color: rgba(221, 221, 221, 0.192);
+            font-family: 'Nunito', sans-serif;
+        }
+        #table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            padding: -5px;
+            color:black;
+            font-family: 'Nunito', sans-serif;
+        }
+        td a{
+          margin-left: 10%;
+          color: black;
+        }
+        #one{
+          padding-left: 7%;
+        }
+        #two{
+          padding-left: 2%;
+        }
+
+
+@media screen and (max-width: 960px) {
+  .sidebar-nav >a {
+     font-size: 13px;
+    margin-top: -15px;
+    height: 30px;
+  }
+  }
+@media screen and (max-width: 960px) {
+  .sidebar-nav{
+    height: 90%;
+    width: 12%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dropdown{
+  margin-left:4%;
+  margin-bottom:-2%;
+   }
+}
+@media screen and (max-width: 768px) {
+table, td, th{
+margin-right: 2%;
+ }
+}
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 20px;
+    margin-left: 30%;
+  }
+}
+@media screen and (max-width: 768px) {
+th, td {
+padding: 15px;
+margin-top: -9%;
+}
+}
+ @media screen and (min-width: 400px) {
+tr, th{
+  padding:14px 14px 14px 18px;
+ }
+}
+@media screen and (min-width: 400px) {
+.addbutton{
+ right:90%;
+ }
+}
+
+
+</style>
+</head>
+<body>
+<button class="addbutton"><a href="{% url 'addgroup:add_group' %}">+</a></button>
+<div class="content" >
+      <div class="sidebar-nav">
+        <img src="{% static 'imges/Farm to Plate.png' %}" alt="" style="width: 90px; height: 90px; margin-left: 28px; margin-bottom: 20px; border-radius: 5%;">
+        <a href="{% url 'addgroup:display_group' %}">Home</a>
+        <a href="{% url 'addgroup:add_group' %}" id="grp" >Add group</a>
+        <a href="{% url 'group_details:list' %}">Deliveries</a>
+        <a href="{% url 'payments:payments' %}">Payments</a>
+        <a href="{%url 'setting_page'%}">Settings</a>
+        <a href="{% url 'login'%}">LogOut</a>
+      </div>
+ </div>
+       <table id="table">
+         <center><h1>Group List</h1></center>
+         <hr>
+        <tr>
+         
+            <th id="name" >Group name</th>
+            <th> Group members</th>
+            <th>Group leader contact</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+          {% for group in groups %}
+
+            <td><a href="{% url 'group_details:group_details' id=group.id %}" id="group" >{{group.group_name}}</a>{{group.no_of_group_member}}</td>
+            <td id="one"  >{{group.no_of_members}}</td>
+            <td id="two" >{{group.phone_number}}</td>
+            <td><a href="{% url 'group_details:group_details' id=group.id %}"><img src="https://icons-for-free.com/iconfiles/png/512/svg+create+edit+edit+file+office+pencil+writing+creativ+icon-1320185158722776676.png" alt="" id="image"></a></td>
+            <td><a href="{% url 'group_details:group_details' id=group.id %}"><img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/delete-2471204-2066711.png" alt="" id="img"></a></td>
+        </tr> 
+        {%endfor%}
+    </table>
+</body>
+</html>
